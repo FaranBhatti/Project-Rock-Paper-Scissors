@@ -1,2 +1,4 @@
-# Project-Rock-Paper-Scissors
-Implementation of the Rock Paper Scissors game
+# 🏠 Project: Rock Paper Scissors
+Initial implementation of Rock Paper Scissors game.
+
+This game is going to be played completely from the console (for now).
