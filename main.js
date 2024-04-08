@@ -69,14 +69,11 @@ function playRound(playerSelection, computerSelection)
   }
 }
 
-
 function playGame() 
 {
-  // variables to track the wins
   let playerWinCount = 0;
   let computerWinCount = 0;
 
-  // play 5 rounds
   for (let i = 1; i < 6; i++) 
   {
     let userChoice = prompt(`Rock, Paper, or Scissor? Round: ${i}`);
@@ -114,7 +111,6 @@ function playGame()
     }
   }
 
-  // output who wins
   if (playerWinCount > computerWinCount)
   {
     console.log(`Player wins ${playerWinCount} rounds to ${computerWinCount} :)`);
