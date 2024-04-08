@@ -5,16 +5,12 @@
  */
 function getComputerChoice() 
 {
-  // Store array of strings containing 'Rock', 'Paper', and 'Scissor'
   const possibleChoices = ['rock', 'paper', 'scissor'];
 
-  // Obtain length of the array
   const arrayLength = possibleChoices.length;
 
-  // Declare variable to store random number based off of the length of the array
   let randomChoice = Math.floor(Math.random() * arrayLength);
 
-  // Return array location based off of the position via randomChoice
   return possibleChoices[randomChoice];
 }
 
@@ -26,55 +22,50 @@ function getComputerChoice()
  */
 function playRound(playerSelection, computerSelection) 
 {
-  
-  // handle case sensitive entries by user
   playerSelection = playerSelection.toLowerCase();
 
-  // Case 1: Tie
-  if (playerSelection === computerSelection) 
+  switch(playerSelection) 
   {
-    return 0;
-  }
-  // Case 2: Player selects rock
-  else if(playerSelection === 'rock') 
-  {
-    if (computerSelection === 'scissor') 
-    {
-      return 1;
-    }
-    else 
-    {
-      return 2;
-    }
-  }
-  // Case 3: Player selects scissors
-  else if(playerSelection === 'scissor') 
-  {
-    if (computerSelection === 'paper') 
-    {
-      return 1;
-    }
-    else 
-    {
-      return 2;
-    }
-  }
-  // Case 4: Player selects paper
-  else if(playerSelection === 'paper') 
-  {
-    if (computerSelection === 'rock') 
-    {
-      return 1;
-    }
-    else 
-    {
-      return 2;
-    }
-  }
-  // Case 5: Invalid input
-  else
-  {
-    return 3;
+    case (computerSelection):
+      return 0;
+      break;
+    case 'rock':
+      {
+        if (computerSelection === 'scissor') 
+        {
+          return 1;
+        }
+        else {
+          return 2;
+        }
+      }
+      break;
+    case 'scissor':
+      {
+        if (computerSelection === 'paper') 
+        {
+          return 1;
+        } 
+        else 
+        {
+          return 2;
+        }
+      }
+      break;
+    case 'paper':
+      {
+        if (computerSelection === 'rock') 
+        {
+          return 1;
+        }
+        else 
+        {
+          return 2;
+        }
+      }
+      break;
+      default:
+        return 3;
   }
 }
 
