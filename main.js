@@ -69,6 +69,10 @@ function playRound(playerSelection, computerSelection)
   }
 }
 
+/**
+ * Function playing a whole game of rock paper scissors up to 5 rounds
+ * @returns log statement of result
+ */
 function playGame() 
 {
   let playerWinCount = 0;
