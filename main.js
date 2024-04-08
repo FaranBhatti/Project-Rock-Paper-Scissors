@@ -129,8 +129,36 @@ function playGame()
   let selectScissorBtn = document.querySelector('.scissor');
 
   selectRockBtn.addEventListener('click', (event) => {
-    let playerSelection = event;
-    
+    const playerSelection = event.target.className;
+    const computerSelection = getComputerChoice();
+
+    const roundResult = playRound(playerSelection, computerSelection);
+
+    switch (roundResult) 
+    {
+      case 0:
+        {
+          console.log(`Round was a tie! Redo.`);
+        }
+        break;
+      case 1:
+        {
+          console.log(`Player Wins.`);
+        }
+        break;
+      case 2:
+        {
+          console.log(`Computer Wins.`);
+        }
+        break;
+      case 3:
+        {
+          console.log("Output of playRound function was invalid");
+        }
+        break;
+      default:
+        console.log("All switch cases failed. (which shouldn't happen)");
+    }
   });
 
 }
