@@ -72,57 +72,67 @@ function playRound(playerSelection, computerSelection)
 
 function playGame() 
 {
-  // variables to track the wins
-  let playerWinCount = 0;
-  let computerWinCount = 0;
+  // // variables to track the wins
+  // let playerWinCount = 0;
+  // let computerWinCount = 0;
 
-  // play 5 rounds
-  for (let i = 1; i < 6; i++) 
-  {
-    let userChoice = prompt(`Rock, Paper, or Scissor? Round: ${i}`);
-    let computerChoice = getComputerChoice();
+  // // play 5 rounds
+  // for (let i = 1; i < 6; i++) 
+  // {
+  //   let userChoice = prompt(`Rock, Paper, or Scissor? Round: ${i}`);
+  //   let computerChoice = getComputerChoice();
 
-    let roundResult = playRound(userChoice, computerChoice);
-    switch (roundResult) 
-    {
-      case 0:
-        {
-          console.log(`Round ${i} was a tie! Redo.`);
-          --i;
-        }
-        break;
-      case 1:
-        {
-          console.log(`Player wins round ${i}.`);
-          ++playerWinCount;
-        }
-        break;
-      case 2:
-        {
-          console.log(`Computer wins round ${i}.`);
-          ++computerWinCount;
-        }
-        break;
-      case 3:
-        {
-          console.log("Output of playRound function was invalid");
-          --i;
-        }
-        break;
-      default:
-        console.log("All switch cases failed. (which shouldn't happen)");
-    }
-  }
+  //   let roundResult = playRound(userChoice, computerChoice);
+  //   switch (roundResult) 
+  //   {
+  //     case 0:
+  //       {
+  //         console.log(`Round ${i} was a tie! Redo.`);
+  //         --i;
+  //       }
+  //       break;
+  //     case 1:
+  //       {
+  //         console.log(`Player wins round ${i}.`);
+  //         ++playerWinCount;
+  //       }
+  //       break;
+  //     case 2:
+  //       {
+  //         console.log(`Computer wins round ${i}.`);
+  //         ++computerWinCount;
+  //       }
+  //       break;
+  //     case 3:
+  //       {
+  //         console.log("Output of playRound function was invalid");
+  //         --i;
+  //       }
+  //       break;
+  //     default:
+  //       console.log("All switch cases failed. (which shouldn't happen)");
+  //   }
+  // }
 
-  // output who wins
-  if (playerWinCount > computerWinCount)
-  {
-    console.log(`Player wins ${playerWinCount} rounds to ${computerWinCount} :)`);
-  }
-  else
-  {
-    console.log(`Computer wins ${playerWinCount} rounds to ${computerWinCount} :(`);
-  }
+  // // output who wins
+  // if (playerWinCount > computerWinCount)
+  // {
+  //   console.log(`Player wins ${playerWinCount} rounds to ${computerWinCount} :)`);
+  // }
+  // else
+  // {
+  //   console.log(`Computer wins ${playerWinCount} rounds to ${computerWinCount} :(`);
+  // }
+
+  let selectRockBtn = document.querySelector('.rock');
+  let selectPaperBtn = document.querySelector('.paper');
+  let selectScissorBtn = document.querySelector('.scissor');
+
+  selectRockBtn.addEventListener('click', (event) => {
+    let playerSelection = event;
+    
+  });
+
 }
 
 playGame();
