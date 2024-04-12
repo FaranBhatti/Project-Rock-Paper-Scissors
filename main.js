@@ -73,6 +73,7 @@ function playRound(playerSelection, computerSelection)
 function playGame() 
 {
   let userSelectionBtn = document.querySelector('#buttons');
+  let resetBtn = document.querySelector('.reset');
   let displayResult = document.querySelector('.display-results');
   let gameEnd = document.querySelector('.game-end');
 
@@ -80,30 +81,52 @@ function playGame()
   let computerWinCount = 0;
   let roundCount = 0;
 
+  let reset = false;
+
     userSelectionBtn.addEventListener('click', (event) => {
-      const playerSelects = event.target.className;
-      const computerSelects = getComputerChoice();
-      const roundResult = playRound(playerSelects, computerSelects);
-      const playerWins = ((playerWinCount > computerWinCount) && (roundCount == 5));
-      const computerWins = ((computerWinCount > playerWinCount) && (roundCount == 5));
+
+    const playerWins = ((playerWinCount > computerWinCount) && (roundCount == 5));
+    const computerWins = ((computerWinCount > playerWinCount) && (roundCount == 5));
 
     if (playerWins)
     {
       gameEnd.textContent = `Player wins ${playerWinCount} rounds to ${computerWinCount}.`;
+      if (reset)
+      {
+
+      }
+      else
+      {
+        event.preventDefault();
+      }
+      
     }
     else if(computerWins)
     {
       gameEnd.textContent = `Computer wins ${computerWinCount} rounds to ${playerWinCount}.`;
+      event.preventDefault();
+      if (reset)
+      {
+
+      }
+      else
+      {
+        event.preventDefault();
+      }
     }
-    else
+
+    if (!playerWins && !computerWins)
     {
+      const playerSelects = event.target.className;
+      const computerSelects = getComputerChoice();
+      const roundResult = playRound(playerSelects, computerSelects);
+  
       switch (roundResult) 
       {
         case 0:
           {
             if (roundCount < 6 && roundCount > 0)
             {
-              --roundCount;
               displayResult.textContent = '';
               displayResult.textContent = 'Round was a tie! Redo.';
               console.log(`Round was a tie! Redo.`);
@@ -146,9 +169,18 @@ function playGame()
             displayResult.textContent = "All switch cases failed. (which shouldn't happen)";
             console.log("All switch cases failed. (which shouldn't happen)");
           }
-      } // end switch
-    } // end if, else if, else
+      } // end switch      
+    } // end if
   }); // end user selecting a button
+
+  resetBtn.addEventListener('click', (event) => {
+    reset = true;
+    playerWinCount = 0;
+    computerWinCount = 0;
+    roundCount = 0;
+    displayResult.textContent = '';
+    gameEnd.textContent = '';
+  })
 }
 
 playGame();

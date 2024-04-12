@@ -16,14 +16,11 @@ img {
     /* object-fit: contain; */
 }
 
-button {
-    
-}
-
 button:hover {
     background-color: grey; /* Green */
     color: white;
 }
+
 #webpage {
     display: flex;
     flex-direction: column;
@@ -41,3 +38,13 @@ button:hover {
     justify-content: space-around;
 }
 
+.reset {
+    height: 50px;
+    width: 100px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
